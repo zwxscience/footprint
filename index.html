@@ -1,0 +1,1409 @@
+﻿<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <link rel="shortcut icon" href="favicon.ico" />
+    <title>杭州十大古城门漫游</title>
+    <meta content="漫游杭州十大古城门:武林门、艮山门、凤山门、清泰门、望江门、候潮门、清波门、涌金门、钱塘门、庆春门" name="description">
+    <meta name="keywords" content="武林门,艮山门,凤山门,清泰门,望江门,候潮门,清波门,涌金门,钱塘门,庆春门">
+    <style type="text/css">
+        body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, fieldset, input, textarea, p, blockquote, th, td
+        {
+            margin: 0;
+            padding: 0;
+        }
+        table
+        {
+            border-collapse: collapse;
+            border-spacing: 0;
+        }
+        fieldset, img
+        {
+            border: 0;
+        }
+        address, caption, cite, code, dfn, em, strong, th, var
+        {
+            font-style: normal;
+            font-weight: normal;
+        }
+        ol, ul
+        {
+            list-style: none;
+        }
+        caption, th
+        {
+            text-align: left;
+        }
+        h1, h2, h3, h4, h5, h6
+        {
+            font-size: 100%;
+            font-weight: bold;
+        }
+        q:before, q:after
+        {
+            content: '';
+        }
+        abbr, acronym
+        {
+            border: 0;
+        }
+
+        body, html
+        {
+            height: 100%;
+            width: 100%;
+        }
+
+        /* Common 定义基本样式 */
+        body
+        {
+            font: 12px/1.8 'Microsoft Yahei' , 'Helvetica Neue' ,Helvetica,Arial,Sans-serif;
+            padding: 0;
+            margin: 0;
+            color: #0;
+        }
+
+        #map
+        {
+            height: 100%;
+            width: 100%;
+        }
+
+        #wait
+        {
+            height: 100%;
+            width: 100%;
+            position: absolute;
+            z-index: 999;
+            background:url("images/loading.gif") no-repeat center center rgba(255,245,0,0.1);
+            top: 0;
+            left: 0;
+            text-align: center;
+            line-height: 300px;
+            font-size: 32px;
+            color: #666;
+        }
+
+        #loading
+        {
+            height: 10%;
+            width: 100%;
+            position: absolute;
+            z-index: 999;
+            top: 0;
+            left: 0;
+            text-align: center;
+            line-height: 200px;
+            font-size: 32px;
+            color:#666;
+        }
+        #contain
+        {
+            height: 90%;
+            width: 100%;
+            position: initial;
+            z-index: 999;
+            top: 20%;
+            left: 0;
+            text-align: center;
+            line-height: 300px;
+            font-size: 32px;
+            color: #666;
+        }
+        #theEnd
+        {
+            height: 0%;
+            width: 100%;
+            line-height: 0;
+            font-size: 0;
+            overflow: hidden;
+            position: absolute;
+            z-index: 999;
+            background: url("images/big_bk.jpg") no-repeat center center #FFFAD1;
+            top: 0;
+            left: 0;
+        }
+
+        #theEndText
+        {
+            position: absolute;
+            left: 0;
+            z-index: 9999;
+            width: 100%;
+            text-align: center;
+            font-size: 26px;
+            line-height: 2;
+            top: 50%;
+            margin-top: -100px;
+            height: 200px;
+        }
+
+    </style>
+    <link href="css/DrawingManager.min.css" rel="stylesheet">
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/jquery.wshare.min.js"></script>
+    <script type="text/javascript" src="js/soundmanager2-nodebug-jsmin.js"></script>
+    <script type="text/javascript" src="js/jpreloader.min.js"></script>
+    <script type="text/javascript" src="https://api.map.baidu.com/api?v=1.0&type=webgl&ak=5VjqxfGEQ6AdjTAojXrgsXg4"></script>
+
+    <script type="text/javascript">
+        (function (a, b) { "use strict"; var c = function () { var a = [["requestFullscreen", "exitFullscreen", "fullscreenchange", "fullscreen", "fullscreenElement"], ["webkitRequestFullScreen", "webkitCancelFullScreen", "webkitfullscreenchange", "webkitIsFullScreen", "webkitCurrentFullScreenElement"], ["mozRequestFullScreen", "mozCancelFullScreen", "mozfullscreenchange", "mozFullScreen", "mozFullScreenElement"]]; for (var c = 0, d = a.length; c < d; c++) { var e = a[c]; if (e[1] in b) return e } } (); if (!c) return a.screenfull = !1; var d = "ALLOW_KEYBOARD_INPUT" in Element, e = { init: function () { return b.addEventListener(c[2], function (a) { e.isFullscreen = b[c[3]], e.element = b[c[4]], e.onchange(a) }), this }, isFullscreen: b[c[3]], element: b[c[4]], request: function (a) { a = a || b.documentElement, a[c[0]](d && Element.ALLOW_KEYBOARD_INPUT), b.isFullscreen || a[c[0]]() }, exit: function () { b[c[1]]() }, toggle: function (a) { this.isFullscreen ? this.exit() : this.request(a) }, onchange: function () { } }; a.screenfull = e.init() })(window, document)
+    </script>
+    <script type="text/javascript">
+
+        /*
+        * 常用变量
+        */
+
+        // 中国中心
+        var CN_CEN = { lng: 103.758427, lat: 36.172333 };
+
+
+
+        // 杭州市
+        var HZ_FH = { lng: 120.171387, lat: 30.249299 };
+        // chengmen
+
+        var houchao = { lng: 120.179532, lat: 30.232903 };
+        var fengshan = { lng: 120.17649, lat: 30.233599 };
+        var qingbo = { lng: 120.164496, lat: 30.243059 };
+        var yongjin = { lng: 120.167104, lat: 30.252257 };
+        var qiantang = { lng: 120.165662, lat: 30.263853 };
+        var wulin = { lng: 120.164655, lat: 30.276622 };
+        var genshan = { lng: 120.184938,lat: 30.280866 };
+        var qingchun = { lng: 120.194409, lat: 30.263812 };
+        var qingtai = { lng: 120.191451, lat: 30.252922 };
+        var wangjiang = { lng: 120.183922, lat: 30.242191 };
+        // 背景音乐
+        var MUSIC;
+        var showTime = 5000;
+        function zoomTo(zoom, time, callback, point) {
+            var time = time || 1000;
+            var callback = callback || function () { };
+            var loop = '';
+            function loopZoom() {
+                var curZoom = map.getZoom();
+                if (curZoom == zoom) {
+                    clearTimeout(loop);
+                    callback();
+                    return false;
+                }
+                var plus = curZoom > zoom ? -1 : 1;
+                var toZoom = curZoom + plus;
+                map.setZoom(toZoom);
+                if (point) {
+                    map.setCenter(point);
+                }
+                var center = map.getCenter();
+                loop = setTimeout(loopZoom, time);
+            }
+            loopZoom();
+        }
+        function start (pl) {
+            trackAni = new BMapGLLib.TrackAnimation(map, pl, {
+                overallView: true,
+                tilt: 30,
+                duration: 8000,
+                delay: 300
+            });
+            trackAni.start();
+        }
+        //var site = new Array();
+        function loopWin(loopList, time,type, callback) {
+            var i = 0;
+            var len = loopList.length;
+            var callback = callback || function () { };
+            var timeout = '';
+
+            function loopWinInner() {
+                if (i == len) {
+                    clearTimeout(timeout);
+                    setTimeout(callback, 1000);
+                    return false;
+                }
+
+                var opts = {
+                    title: loopList[i].title,
+                    enableAutoPan: true
+                };
+
+                var infoWindow = new BMapGL.InfoWindow(loopList[i].content, opts);
+                map.openInfoWindow(infoWindow, new BMapGL.Point(loopList[i].point.lng, loopList[i].point.lat));
+
+                infoWindow.redraw();
+                i++;
+                if (loopList[i]) {
+                    var time = loopList[i].timeout || 2000;
+                } else {
+                    var time = 2000;
+                }
+                timeout = setTimeout(loopWinInner, time);
+            }
+
+            loopWinInner();
+        }
+
+        function setMark(point) {
+            var marker = new BMapGL.Marker(point);
+            map.addOverlay(marker);
+            marker.setAnimation(BMAP_ANIMATION_BOUNCE);
+            map.setDisplayOptions({
+                skyColors: ['rgba(186, 0, 255, 0)','rgba(186, 0, 255, 0.2)']
+            });
+        }
+        function panZoom_HZ() {
+            map.panTo(new BMapGL.Point(HZ_FH.lng, HZ_FH.lat));
+            setTimeout(function () {
+                zoomTo(16, 1000, function () {
+                    var point = new BMapGL.Point(houchao.lng, houchao.lat);
+                    map.panTo(point);
+                    setMark(point);
+                   setTimeout(showHouchao, 1200);
+                }, HZ_FH);
+            }, 2800);
+        }
+
+        function showHouchao() {
+            map.centerAndZoom(houchao, 16);
+            map.setHeading(64.5);
+            map.setTilt(73);
+            setTimeout(function () {
+                var mr2 = [
+                    {
+                        title: '<b>古候潮门</b>',
+                        content: '候潮门外酒坛儿',
+                        point: houchao
+                    },
+                    {
+                        title: '<b>古候潮门</b>',
+                        content: '始建于五代吴越，名竹车门。<br>南宋绍兴二十八年在旧基重候潮门。<br>民国二年以后，因拆城筑路，门被拆除。',
+                        point: houchao
+                    },
+                    {
+                        title: '<b>现存地址</b>',
+                        content: '上城区江城路307号附近转盘花坛。',
+                        point: houchao
+                    },
+                    {
+                        title: '<b>候潮门外酒坛儿</b>',
+                        content: '<img src="images/door/houchaomen.jpg" width="240" height="425" alt="候潮门外酒坛儿" />',
+                        point: houchao
+                    }
+                ];
+                loopWin(mr2, showTime,3, houchaoToFengshan);
+                map.setHeading(64.5);
+                map.setTilt(73);
+                map.closeInfoWindow();
+            }, 3000);
+
+        }
+
+        function houchaoToFengshan(){
+            var path = [{
+                'lng': houchao.lng,
+                'lat': houchao.lat
+                },
+                {
+                'lng': 120.179249,
+                'lat': 30.232809
+                },
+                {
+                    'lng': 120.178629,
+                    'lat': 30.232899
+                },
+                {
+                    'lng': 120.177097,
+                    'lat': 30.23323
+                },
+                {
+                    'lng': 120.176464,
+                    'lat': 30.233433
+                },
+                {
+                'lng': fengshan.lng,
+                'lat': fengshan.lat
+            }];
+            var point = [];
+            for (var i = 0; i < path.length; i++) {
+                point.push(new BMapGL.Point(path[i].lng, path[i].lat));
+            }
+            var pl = new BMapGL.Polyline(point);
+
+            setTimeout(function () {
+                start(pl);
+                setTimeout(function () {
+                    showFengshan();
+
+                },8000);
+            }, 2000);
+
+        }
+        function showFengshan() {
+            map.setHeading(64.5);
+            map.setTilt(73);
+            setMark(fengshan);
+            map.centerAndZoom(fengshan, 16);
+            setTimeout(function () {
+                var mr2 = [
+                    {
+                        title: '<b>古凤山门</b>',
+                        content: '凤山门外跑马儿',
+                        point: fengshan
+                    },
+                    {
+                        title: '<b>古凤山门</b>',
+                        content: '为南宋王朝的南大门。<br/>南宋末，元兵进占，门毁。<br/>至正十九年重建城垣名凤山门。<br/>民国初期，拆毁城门。',
+                        point: fengshan
+                    },
+                    {
+                        title: '<b>现存地址</b>',
+                        content: '上城区中山南路与六部桥直街交叉路口西北侧',
+                        point: fengshan
+                    },
+                    {
+                        title: '<b>凤山门外跑马儿</b>',
+                        content: '<img src="images/door/fengshanmen.jpg" width="240" height="425" alt="凤山门外跑马儿" />',
+                        point: fengshan
+                    }
+                ];
+                loopWin(mr2, showTime,3, fengshanToQingbo);
+                map.setHeading(64.5);
+                map.setTilt(73);
+                map.closeInfoWindow();
+            }, 4000);
+        }
+
+        function fengshanToQingbo() {
+            var path = [
+                {
+                'lng': fengshan.lng,
+                'lat': fengshan.lat
+                },
+                {
+                    'lng': 120.176266,
+                    'lat': 30.23362
+                },
+                {
+                    'lng': 120.176832,
+                    'lat': 30.235442
+                },
+                {
+                    'lng': 120.175404,
+                    'lat': 30.235422
+                },
+                {
+                    'lng': 120.174753,
+                    'lat': 30.235259
+                },
+                {
+                    'lng': 120.173234,
+                    'lat': 30.234674
+                },
+                {
+                    'lng': 120.17252,
+                    'lat': 30.234529
+                },
+                {
+                    'lng': 120.165015,
+                    'lat': 30.235719
+                },
+                {
+                    'lng': 120.163483,
+                    'lat': 30.236238
+                },
+                {
+                    'lng': 120.162104,
+                    'lat': 30.236007
+                },
+                {
+                    'lng': 120.161846,
+                    'lat': 30.238381
+                },
+                {
+                    'lng': 120.163041,
+                    'lat': 30.240198
+                },
+                {
+                    'lng': 120.16336,
+                    'lat': 30.241247
+                },
+                {
+                    'lng': 120.164141,
+                    'lat': 30.241785
+                },
+                {
+                    'lng': 120.164909,
+                    'lat': 30.242983
+                },
+                {
+                    'lng': qingbo.lng,
+                    'lat': qingbo.lat
+                }];
+            var point = [];
+            for (var i = 0; i < path.length; i++) {
+                point.push(new BMapGL.Point(path[i].lng, path[i].lat));
+            }
+            var pl = new BMapGL.Polyline(point);
+
+            setTimeout(function () {
+                start(pl);
+                setTimeout(function () {
+                    showQingbo();
+
+                },9000);
+            }, 2000);
+        }
+
+        function showQingbo() {
+
+            map.setHeading(64.5);
+            map.setTilt(73);
+            setMark(qingbo);
+            map.centerAndZoom(qingbo, 16);
+            map.setZoom(16);
+            map.setCenter(qingbo);
+
+            setTimeout(function () {
+                var mr2 = [
+                    {
+                        title: '<b>古清波门</b>',
+                        content: '清波门外柴担儿',
+                        point: qingbo
+                    },
+                    {
+                        title: '<b>古清波门</b>',
+                        content: '吴越时为涵水门。<br/>南宋绍兴二十八年增筑杭城，在此建门。<br/>民国二年拆除。',
+                        point: qingbo
+                    },
+                    {
+                        title: '<b>现存地址</b>',
+                        content: '上城区南山路61号学士公园内',
+                        point: qingbo
+                    },
+                    {
+                        title: '<b>清波门外柴担儿</b>',
+                        content: '<img src="images/door/qingbomen.jpg" width="240" height="425" alt="清波门外柴担儿" />',
+                        point: qingbo
+                    }
+                ];
+                loopWin(mr2, showTime,3, qingboToYongjin);
+                map.setHeading(64.5);
+                map.setTilt(73);
+                map.closeInfoWindow();
+            }, 3000);
+
+        }
+
+        function qingboToYongjin() {
+            var path = [
+                {
+                    'lng': qingbo.lng,
+                    'lat': qingbo.lat
+                },
+                {
+                    'lng': 120.164986,
+                    'lat': 30.243178
+                },
+                {
+                    'lng': 120.164559,
+                    'lat': 30.246898
+                },
+                {
+                    'lng': 120.165661,
+                    'lat': 30.248264
+                },
+                {
+                    'lng': 120.167537,
+                    'lat': 30.252042
+                },
+                {
+                    'lng': yongjin.lng,
+                    'lat': yongjin.lat
+                }];
+            var point = [];
+            for (var i = 0; i < path.length; i++) {
+                point.push(new BMapGL.Point(path[i].lng, path[i].lat));
+            }
+            var pl = new BMapGL.Polyline(point);
+
+            setTimeout(function () {
+                start(pl);
+                setTimeout(function () {
+                    showYongjin();
+
+                },9000);
+            }, 2000);
+        }
+
+        function showYongjin() {
+
+            map.setHeading(64.5);
+            map.setTilt(73);
+            setMark(yongjin);
+            map.centerAndZoom(yongjin, 16);
+            map.setZoom(16);
+            map.setCenter(yongjin);
+
+            setTimeout(function () {
+                var mr2 = [
+                    {
+                        title: '<b>古涌金门</b>',
+                        content: '涌金门外划船儿',
+                        point: yongjin
+                    },
+                    {
+                        title: '<b>古涌金门</b>',
+                        content: '唐景福二年( 839 ) ，吴越国王钱谬筑杭州城墙.<br/>在此处开城门即命名为“涌金门 ”。<br/>民国二年拆除。',
+                        point: yongjin
+                    },
+                    {
+                        title: '<b>现存地址</b>',
+                        content: '上城区南山路127号',
+                        point: yongjin
+                    },
+                    {
+                        title: '<b>涌金门外划船儿</b>',
+                        content: '<img src="images/door/yongjinmen.jpg" width="240" height="425" alt="涌金门外划船儿" />',
+                        point: yongjin
+                    }
+                ];
+                loopWin(mr2, showTime,3, yongjinToQiantang);
+                map.setHeading(64.5);
+                map.setTilt(73);
+                map.closeInfoWindow();
+            }, 3000);
+
+        }
+
+        function yongjinToQiantang()
+        {
+            var path = [
+                {
+                    'lng': yongjin.lng,
+                    'lat': yongjin.lat
+                },
+                {
+                    'lng': 120.167142,
+                    'lat': 30.253411
+                },
+                {
+                    'lng': 120.167362,
+                    'lat': 30.25359
+                },
+                {
+                    'lng': 120.167636,
+                    'lat': 30.254733
+                },
+                {
+                    'lng': 120.168202,
+                    'lat': 30.255302
+                },
+                {
+                    'lng': 120.169513,
+                    'lat': 30.256019
+                },
+                {
+                    'lng': 120.170897,
+                    'lat': 30.256078
+                },
+                {
+                    'lng': 120.170652,
+                    'lat': 30.263933
+                },
+                {
+                    'lng': 120.168256,
+                    'lat': 30.263982
+                },
+                {
+                    'lng': 120.166635,
+                    'lat': 30.263966
+                },
+                {
+                    'lng': qiantang.lng,
+                    'lat': qiantang.lat
+                }];
+            var point = [];
+            for (var i = 0; i < path.length; i++) {
+                point.push(new BMapGL.Point(path[i].lng, path[i].lat));
+            }
+            var pl = new BMapGL.Polyline(point);
+
+            setTimeout(function () {
+                start(pl);
+                setTimeout(function () {
+                    showQiantang();
+
+                },9000);
+            }, 2000);
+        }
+
+        function showQiantang() {
+            map.setHeading(64.5);
+            map.setTilt(73);
+            setMark(qiantang);
+            map.centerAndZoom(qiantang, 16);
+            map.setZoom(16);
+            map.setCenter(qiantang);
+
+            setTimeout(function () {
+                var mr2 = [
+                    {
+                        title: '<b>古钱塘门</b>',
+                        content: '钱塘门外香篮儿',
+                        point: qiantang
+                    },
+                    {
+                        title: '<b>古钱塘门</b>',
+                        content: '隋开皇十一年（591）移州依山筑城，西北城门谓钱唐门。<br/>唐武德四年（621）为避国号讳改钱唐为钱塘。<br/>民国二年拆除。',
+                        point: qiantang
+                    },
+                    {
+                        title: '<b>现存地址</b>',
+                        content: '上城区湖滨路52号附近',
+                        point: qiantang
+                    },
+                    {
+                        title: '<b>钱塘门外香篮儿</b>',
+                        content: '<img src="images/door/qiantangmen.jpg" width="240" height="425" alt="钱塘门外香篮儿" />',
+                        point: qiantang
+                    }
+                ];
+                loopWin(mr2, showTime,3, qiantangToWulin);
+                map.setHeading(64.5);
+                map.setTilt(73);
+                map.closeInfoWindow();
+            }, 3000);
+        }
+
+        function qiantangToWulin() {
+            var path = [
+                {
+                    'lng': qiantang.lng,
+                    'lat': qiantang.lat
+                },
+                {
+                    'lng': 120.166635,
+                    'lat': 30.263966
+                },
+                {
+                    'lng': 120.167147,
+                    'lat': 30.265624
+                },
+                {
+                    'lng': 120.167061,
+                    'lat': 30.266119
+                },
+                {
+                    'lng': 120.167564,
+                    'lat': 30.267405
+                },
+                {
+                    'lng': 120.167695,
+                    'lat': 30.268127
+                },
+                {
+                    'lng': 120.167591,
+                    'lat': 30.269542
+                },
+                {
+                    'lng': 120.166953,
+                    'lat': 30.271811
+                },
+                {
+                    'lng': 120.165705,
+                    'lat': 30.275632
+                },
+                {
+                    'lng': 120.165292,
+                    'lat': 30.276267
+                },
+                {
+                    'lng': 120.164739,
+                    'lat': 30.276271
+                },
+                {
+                    'lng': wulin.lng,
+                    'lat': wulin.lat
+                }];
+
+            var point = [];
+            for (var i = 0; i < path.length; i++) {
+                point.push(new BMapGL.Point(path[i].lng, path[i].lat));
+            }
+            var pl = new BMapGL.Polyline(point);
+
+            setTimeout(function () {
+                start(pl);
+                setTimeout(function () {
+                    showWulin();
+
+                },9000);
+            }, 2000);
+        }
+        function showWulin() {
+            map.setHeading(64.5);
+            map.setTilt(73);
+            setMark(wulin);
+            map.centerAndZoom(wulin, 16);
+            map.setZoom(16);
+            map.setCenter(wulin);
+
+            setTimeout(function () {
+                var mr2 = [
+                    {
+                        title: '<b>古武林门</b>',
+                        content: '武林门外鱼担儿',
+                        point: wulin
+                    },
+                    {
+                        title: '<b>古武林门</b>',
+                        content: '杭城最古老的北大门，始建于隋代，有1300多年历史。<br/>民国初，因筑路拆除武林门。',
+                        point: wulin
+                    },
+                    {
+                        title: '<b>现存地址</b>',
+                        content: '下城区武林体育场路万向公园',
+                        point: wulin
+                    },
+                    {
+                        title: '<b>武林门外鱼担儿</b>',
+                        content: '<img src="images/door/wulinmen.jpg" width="240" height="425" alt="武林门外鱼担儿" />',
+                        point: wulin
+                    }
+                ];
+                loopWin(mr2, showTime,3, wulinToGenshan);
+                map.setHeading(64.5);
+                map.setTilt(73);
+                map.closeInfoWindow();
+            }, 3000);
+        }
+
+        function wulinToGenshan() {
+            var path = [
+                {
+                    'lng': wulin.lng,
+                    'lat': wulin.lat
+                },
+                {
+                    'lng': 120.173567,
+                    'lat': 30.27584
+                },
+                {
+                    'lng': 120.17767,
+                    'lat': 30.275542
+                },
+                {
+                    'lng': 120.177666,
+                    'lat': 30.277503
+                },
+                {
+                    'lng': 120.180123,
+                    'lat': 30.277803
+                },
+                {
+                    'lng': 120.182638,
+                    'lat': 30.278712
+                },
+                {
+                    'lng': 120.184403,
+                    'lat': 30.278895
+                },
+                {
+                    'lng': 120.184282,
+                    'lat': 30.28056
+                },
+                {
+                    'lng': genshan.lng,
+                    'lat': genshan.lat
+                }];
+
+            var point = [];
+            for (var i = 0; i < path.length; i++) {
+                point.push(new BMapGL.Point(path[i].lng, path[i].lat));
+            }
+            var pl = new BMapGL.Polyline(point);
+
+            setTimeout(function () {
+                start(pl);
+                setTimeout(function () {
+                    showGenshan();
+
+                },9000);
+            }, 2000);
+        }
+
+
+        function showGenshan() {
+            map.setHeading(64.5);
+            map.setTilt(73);
+            setMark(genshan);
+            map.centerAndZoom(genshan, 16);
+            map.setZoom(16);
+            map.setCenter(genshan);
+
+            setTimeout(function () {
+                var mr2 = [
+                    {
+                        title: '<b>古艮山门</b>',
+                        content: '艮山门外丝篮儿',
+                        point: genshan
+                    },
+                    {
+                        title: '<b>古艮山门</b>',
+                        content: '杭城古代的东北门，五代吴越时筑罗城 ，称保德门。<br/>南宋绍兴二十八年，移门址改名艮山门。<br/>民国初期因筑路拆除。',
+                        point: genshan
+                    },
+                    {
+                        title: '<b>现存地址</b>',
+                        content: '下城区环城北路与建国北路交叉口',
+                        point: genshan
+                    },
+                    {
+                        title: '<b>艮山门外丝篮儿</b>',
+                        content: '<img src="images/door/genshanmen.jpg" width="240" height="425" alt="艮山门外丝篮儿" />',
+                        point: genshan
+                    }
+                ];
+                loopWin(mr2, showTime,3, genshanToQingchun);
+                map.setHeading(64.5);
+                map.setTilt(73);
+                map.closeInfoWindow();
+            }, 3000);
+        }
+
+        function genshanToQingchun() {
+            var path = [
+                {
+                    'lng': genshan.lng,
+                    'lat': genshan.lat
+                },
+                {
+                    'lng': 120.185804,
+                    'lat': 30.280681
+                },
+                {
+                    'lng': 120.186806,
+                    'lat': 30.275994
+                },
+                {
+                    'lng': 120.187309,
+                    'lat': 30.27261
+                },
+                {
+                    'lng': 120.187486,
+                    'lat': 30.270304
+                },
+                {
+                    'lng': 120.187428,
+                    'lat': 30.263754
+                },
+                {
+                    'lng': 120.194284,
+                    'lat': 30.263592
+                },
+                {
+                    'lng': qingchun.lng,
+                    'lat': qingchun.lat
+                }];
+
+            var point = [];
+            for (var i = 0; i < path.length; i++) {
+                point.push(new BMapGL.Point(path[i].lng, path[i].lat));
+            }
+            var pl = new BMapGL.Polyline(point);
+
+            setTimeout(function () {
+                start(pl);
+                setTimeout(function () {
+                    showQingchun();
+
+                },9000);
+            }, 2000);
+        }
+
+        function showQingchun() {
+            map.setHeading(64.5);
+            map.setTilt(73);
+            setMark(qingchun);
+            map.centerAndZoom(qingchun, 16);
+            map.setZoom(16);
+            map.setCenter(qingchun);
+
+            setTimeout(function () {
+                var mr2 = [
+                    {
+                        title: '<b>古庆春门</b>',
+                        content: '庆春门外粪担儿',
+                        point: qingchun
+                    },
+                    {
+                        title: '<b>古庆春门</b>',
+                        content: '始建于南宋绍兴二十八年，为杭州古代东城门之一。<br/>原名东青门，因门外有菜市又称菜市门。明初常遇春由此门入城，故名庆春。<br/>1959年建环城东路时拆除。',
+                        point: qingchun
+                    },
+                    {
+                        title: '<b>现存地址</b>',
+                        content: '拱墅区环城东路132号',
+                        point: qingchun
+                    },
+                    {
+                        title: '<b>庆春门外粪担儿</b>',
+                        content: '<img src="images/door/qingchunmen.jpg" width="240" height="425" alt="庆春门外粪担儿" />',
+                        point: qingchun
+                    }
+                ];
+                loopWin(mr2, showTime,3, qingchunToQingtai);
+                map.setHeading(64.5);
+                map.setTilt(73);
+                map.closeInfoWindow();
+            }, 3000);
+
+        }
+
+        function qingchunToQingtai() {
+            var path = [
+                {
+                    'lng': qingchun.lng,
+                    'lat': qingchun.lat
+                },
+                {
+                    'lng': 120.1941,
+                    'lat': 30.263631
+                },
+                {
+                    'lng': 120.193853,
+                    'lat': 30.257856
+                },
+                {
+                    'lng': 120.19353,
+                    'lat': 30.256827
+                },
+                {
+                    'lng': 120.192663,
+                    'lat': 30.25522
+                },
+                {
+                    'lng': 120.192227,
+                    'lat': 30.255532
+                },
+                {
+                    'lng': 120.19158,
+                    'lat': 30.255345
+                },
+                {
+                    'lng': 120.191504,
+                    'lat': 30.254986
+                },
+                {
+                    'lng': 120.19176,
+                    'lat': 30.25474
+                },
+                {
+                    'lng': 120.191841,
+                    'lat': 30.254385
+                },
+                {
+                    'lng': 120.190839,
+                    'lat': 30.252927
+                },
+                {
+                    'lng': qingtai.lng,
+                    'lat': qingtai.lat
+                }];
+            var point = [];
+            for (var i = 0; i < path.length; i++) {
+                point.push(new BMapGL.Point(path[i].lng, path[i].lat));
+            }
+            var pl = new BMapGL.Polyline(point);
+
+            setTimeout(function () {
+                start(pl);
+                setTimeout(function () {
+                    showQingtai();
+
+                },9000);
+            }, 2000);
+        }
+
+        function showQingtai() {
+            map.setHeading(64.5);
+            map.setTilt(73);
+            setMark(qingtai);
+            map.centerAndZoom(qingtai, 16);
+            map.setZoom(16);
+            map.setCenter(qingtai);
+
+            setTimeout(function () {
+                var mr2 = [
+                    {
+                        title: '<b>古清泰门</b>',
+                        content: '清泰门外盐担儿',
+                        point: qingtai
+                    },
+                    {
+                        title: '<b>古清泰门</b>',
+                        content: '吴越时为涵水门，南宋绍兴二十八年增筑杭城，在此建门。<br/>民国二年拆除。',
+                        point: qingtai
+                    },
+                    {
+                        title: '<b>现存地址</b>',
+                        content: '上城区环城东路14附近',
+                        point: qingtai
+                    },
+                    {
+                        title: '<b>清泰门外盐担儿</b>',
+                        content: '<img src="images/door/qingtaimen.jpg" width="240" height="425" alt="清泰门外盐担儿" />',
+                        point: qingtai
+                    }
+                ];
+                loopWin(mr2, showTime,3, qingtaiToWangjiang);
+                map.setHeading(64.5);
+                map.setTilt(73);
+                map.closeInfoWindow();
+            }, 3000);
+
+        }
+
+        function qingtaiToWangjiang() {
+            var path = [
+                {
+                    'lng': qingtai.lng,
+                    'lat': qingtai.lat
+                },
+                {
+                    'lng': 120.190839,
+                    'lat': 30.252927
+                },
+                {
+                    'lng': 120.188773,
+                    'lat': 30.253118
+                },
+                {
+                    'lng': 120.186118,
+                    'lat': 30.252826
+                },
+                {
+                    'lng': 120.185826,
+                    'lat': 30.252584
+                },
+                {
+                    'lng': 120.184339,
+                    'lat': 30.248669
+                },
+                {
+                    'lng': 120.184528,
+                    'lat': 30.248411
+                },
+                {
+                    'lng': 120.18672,
+                    'lat': 30.247386
+                },
+                {
+                    'lng': 120.185619,
+                    'lat': 30.245553
+                },
+                {
+                    'lng': 120.184717,
+                    'lat': 30.244133
+                },
+                {
+                    'lng': 120.183508,
+                    'lat': 30.242226
+                },
+                {
+                    'lng': wangjiang.lng,
+                    'lat': wangjiang.lat
+                }];
+
+            var point = [];
+            for (var i = 0; i < path.length; i++) {
+                point.push(new BMapGL.Point(path[i].lng, path[i].lat));
+            }
+            var pl = new BMapGL.Polyline(point);
+
+            setTimeout(function () {
+                start(pl);
+                setTimeout(function () {
+                    showWangjiang();
+
+                },9000);
+            }, 2000);
+        }
+
+        function showWangjiang() {
+            map.setHeading(64.5);
+            map.setTilt(73);
+            setMark(wangjiang);
+            map.centerAndZoom(wangjiang, 16);
+            map.setZoom(16);
+            map.setCenter(wangjiang);
+
+            setTimeout(function () {
+                var mr2 = [
+                    {
+                        title: '<b>古望江门</b>',
+                        content: '望江门外菜担儿',
+                        point: wangjiang
+                    },
+                    {
+                        title: '<b>古望江门</b>',
+                        content: '为杭城古代东南部城门，始建于南宋绍兴二十八年。<br/>民国初因筑路拆除城墙城门。',
+                        point: wangjiang
+                    },
+                    {
+                        title: '<b>现存地址</b>',
+                        content: '上城区江城路634号附近',
+                        point: wangjiang
+                    },
+                    {
+                        title: '<b>望江门外菜担儿</b>',
+                        content: '<img src="images/door/wangjiangmen.jpg" width="240" height="425" alt="望江门外菜担儿" />',
+                        point: wangjiang
+                    }
+                ];
+                loopWin(mr2, showTime,3, wangjiangToHouchao);
+                map.setHeading(64.5);
+                map.setTilt(73);
+                map.closeInfoWindow();
+            }, 3000);
+        }
+
+        function wangjiangToHouchao() {
+            var path = [
+                {
+                    'lng': wangjiang.lng,
+                    'lat': wangjiang.lat
+                },
+                {
+                    'lng': 120.182304,
+                    'lat': 30.24053
+                },
+                {
+                    'lng': 120.181622,
+                    'lat': 30.23948
+                },
+                {
+                    'lng': 120.181209,
+                    'lat': 30.238879
+                },
+                {
+                    'lng': 120.180787,
+                    'lat': 30.238041
+                },
+                {
+                    'lng': 120.180279,
+                    'lat': 30.236742
+                },
+                {
+                    'lng': 120.179686,
+                    'lat': 30.234983
+                },
+                {
+                    'lng': 120.179394,
+                    'lat': 30.233864
+                },
+                {
+                    'lng': 120.179421,
+                    'lat': 30.233041
+                },
+                {
+                    'lng': houchao.lng,
+                    'lat': houchao.lat
+                }];
+
+            var point = [];
+            for (var i = 0; i < path.length; i++) {
+                point.push(new BMapGL.Point(path[i].lng, path[i].lat));
+            }
+            var pl = new BMapGL.Polyline(point);
+
+            setTimeout(function () {
+                start(pl);
+                setTimeout(function () {
+                    showHangzhou();
+
+                },9000);
+            }, 2000);
+        }
+
+        function showHangzhou() {
+            var point = new BMapGL.Point(120.178383,30.263762);
+            map.panTo(point);//city center
+            setTimeout(function () {
+                zoomTo(11, 1000, function () {
+                    var marker = new BMapGL.Marker(point);
+                    map.addOverlay(marker);
+                    marker.setAnimation(BMAP_ANIMATION_BOUNCE);
+                    setTimeout(end, 1000);
+                });
+            }, 1000);
+        }
+
+        function end() {
+            slideDown('theEnd', 1000, function () {
+
+                var theEndText = '<div id="theEndText"><div>两岸灯火钱塘绘星汉，一江如烟笔墨书文章。<p style="font-size:20px"> --此章微详</p><br /></div>' +
+                    '<div style="display: inline-block;"><br/></div>' +
+                    '<div><button onclick="window.location.reload();">再看一次</button><button onclick="window.location.href=\'http://m.zhangweixiang.com\';">找我聊聊</button></div></div>';
+                document.getElementById('theEnd').innerHTML = theEndText;
+
+            });
+
+        }
+
+        function slideDown(id, speed, callback) {
+            var object = document.getElementById(id);
+            var timeout = speed * 0.001;
+            var callback = callback || function () { };
+            var loop = '';
+            object.style.display = 'block';
+            object.style.height = '0%';
+            function slideDownInner() {
+                var curHeight = parseFloat(object.style.height) || 0;
+                if (curHeight >= 100) {
+                    clearTimeout(loop);
+                    callback();
+                    return false;
+                }
+                object.style.height = (curHeight + 0.1) + '%';
+                loop = setTimeout(slideDownInner, timeout);
+            }
+            slideDownInner();
+        }
+
+        function preLoadImages(imagesList, callback) {
+            var len = imagesList.length;
+            var i = 0;
+            var images = {};
+            var callback = callback || function () { };
+            function loadImage() {
+                if (i == len) {
+                    callback();
+                    return false;
+                }
+                images[i] = new Image();
+                images[i].src = imagesList[i];
+                i++;
+                loadImage();
+            }
+            loadImage();
+        }
+
+        var map;
+
+        function initMap() {
+            map = new BMapGL.Map('map');
+            var point = new BMapGL.Point(HZ_FH.lng, HZ_FH.lat);
+            map.centerAndZoom(point, 6);
+            map.disableDragging();
+            map.disableDoubleClickZoom();
+            //map.setMapType(BMAP_EARTH_MAP);      // 设置地图类型为地球模式
+            init();
+
+
+        }
+
+        function init() {
+            document.getElementById('wait').style.display = 'none';
+            document.getElementById('theEnd').style.height = '0';
+            document.getElementById('theEnd').innerHTML = '';
+            MUSIC.play();
+            map.setMapType(BMAP_NORMAL_MAP);
+            var point = new BMapGL.Point(HZ_FH.lng, HZ_FH.lat);
+
+            setTimeout(function(){
+                map.centerAndZoom(point, 10);
+                map.clearOverlays();
+                map.reset();
+                map.panTo(new BMapGL.Point(HZ_FH.lng, HZ_FH.lat));
+                panZoom_HZ();
+            },1000);
+
+            //showMarkerText();
+        }
+
+        function loadScript(src) {
+            var script = document.createElement("script");
+            script.src = src;
+            document.body.appendChild(script);
+        }
+
+        window.onload = function () {
+            var imglist = [
+        'images/door/houchaomen.jpg',
+        'images/door/fengshanmen.jpg',
+        'images/door/qingbomen.jpg',
+        'images/door/yongjinmen.jpg',
+        'images/door/qiantangmen.jpg',
+        'images/door/wulinmen.jpg',
+        'images/door/genshanmen.jpg',
+        'images/door/qingchunmen.jpg',
+        'images/door/qingtaimen.jpg',
+        'images/door/wangjiangmen.jpg',
+        'images/big_bk.jpg'
+
+    ];
+
+    soundManager.setup({
+        url: 'sm/',
+        onready: initMP3
+    });
+
+            function initMP3() {
+
+                MUSIC = soundManager.createSound({
+                    id: 'mp3',
+                    url: 'shi.mp3',
+                    onload: function () {
+                        preLoadImages(imglist, function () {
+                            setTimeout(function () {
+                                var wait = document.getElementById('wait');
+                                wait.style.background = 'no-repeat center center #000';
+                                var loading = document.getElementById('loading');
+                                loading.style.cursor = 'pointer';
+                                loading.style.color = 'blanchedalmond';
+                                loading.innerHTML = '点我传送到杭州';
+                                map = new BMapGL.Map('contain');
+                                var point = new BMapGL.Point(HZ_FH.lng, HZ_FH.lat);
+                                map.centerAndZoom(point, 4);
+                                map.disableDragging();
+                                map.disableDoubleClickZoom();
+                                map.setMapType(BMAP_EARTH_MAP);      // 设置地图类型为地球模式
+                                loading.onclick = function () {
+                                   // screenfull && screenfull.request();
+                                loadScript("http://mapopen.bj.bcebos.com/github/BMapGLLib/TrackAnimation/src/TrackAnimation.min.js");
+                                loadScript("http://mapopen.bj.bcebos.com/github/BMapGLLib/DrawingManager/src/DrawingManager.min.js");
+                                initMap();
+
+                                }
+                            }, 2000);
+                        });
+                    }
+                });
+                MUSIC.load();
+            }
+        };
+    </script>
+</head>
+<body>
+<div style='margin:0 auto;width:0px;height:0px;overflow:hidden;'>
+    <img src="images/door/wangjiangmen.jpg" title="微信分享缩略图" width='700'>
+</div>
+<div id = "wait">
+    <div id="loading">
+        正在加载地球数据...    </div>
+    <div id="contain"></div>
+</div>
+    <div id="map">
+    </div>
+    <div id="theEnd">
+    </div>
+    <!-- JiaThis Button END -->
+    <div style="display: none">
+        <script type="text/javascript" src="https://s9.cnzz.com/z_stat.php?id=1280463881&web_id=1280463881"></script>
+    </div>
+</body>
+</html>
