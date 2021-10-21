@@ -184,9 +184,11 @@
             var time = time || 1000;
             var callback = callback || function () { };
             var loop = '';
+            var maxtime = 0;
             function loopZoom() {
+                maxtime++;
                 var curZoom = map.getZoom();
-                if (curZoom == zoom) {
+                if ((curZoom == zoom)||(maxtime >=10)) {
                     clearTimeout(loop);
                     callback();
                     return false;
