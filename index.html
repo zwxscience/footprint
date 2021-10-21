@@ -1231,7 +1231,7 @@
 
         function showHangzhou() {
             var point = new BMapGL.Point(120.178383,30.263762);
-            map.panTo(point);//city center
+            map.centerAndZoom(point, 16);
             setTimeout(function () {
                 zoomTo(11, 1000, function () {
                     var marker = new BMapGL.Marker(point);
